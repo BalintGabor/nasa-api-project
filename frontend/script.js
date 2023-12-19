@@ -28,7 +28,54 @@ const loadEvent = async function() {
     button.addEventListener("click", clickSearch);
     async function clickSearch() {
         let input = document.getElementById("chosen-date").value;
+        newFetch(input);
         console.log(input);
+    }
+
+    // New fetch for the chosen date's data
+    async function newFetch(input) {
+
+        // Selectors
+        const mainContainerElement = document.getElementById("main-container");
+        const mediaContainerElement = document.getElementById("media-container");
+        const articleContainerElement = document.getElementById("article-container");
+        const articleTitleElement = document.getElementById("article-title");
+        const articleExplanationElement = document.getElementById("article-explanation");
+
+        // New fetch
+        const changedResponse = await fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=" + `${input}`);
+        const changedResponseJson = await changedResponse.json();
+
+        // Remove the old data
+        mediaContainerElement.remove();
+        articleTitleElement.remove();
+        articleExplanationElement.remove();
+
+        // Define the new media content: image or video
+        const changedMediaContent = changedImgOrIframe ();
+        function changedImgOrIframe() {
+            if (changedResponseJson.media_type === "video") {
+                return `
+                <div id="media-container">
+                    <iframe src="${changedResponseJson.url}">
+                </div>`;
+            }
+            return `
+            <div id="media-container">
+                <img src="${changedResponseJson.hdurl}">
+            </div>
+            `;
+        }
+
+        // Get the new title and explanation
+        const changedTitleAndExplanationElement = `
+            <h2>${changedResponseJson.title}</h2>
+            <p>${changedResponseJson.explanation}</p>
+        `;
+
+        // Insert the new media content, title and explanation
+        mainContainerElement.insertAdjacentHTML("afterbegin", changedMediaContent);
+        articleContainerElement.insertAdjacentHTML("afterbegin", changedTitleAndExplanationElement);
     }
 }
 
