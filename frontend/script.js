@@ -1,5 +1,5 @@
 const loadEvent = async function() {
-    
+
     // Selectors
     const mediaContainerElement = document.getElementById("media-container");
     const titleElement = document.getElementById("article-title");
@@ -22,6 +22,14 @@ const loadEvent = async function() {
     mediaContainerElement.insertAdjacentHTML("beforeend", mediaContent);
     titleElement.insertAdjacentHTML("beforeend", responseJson.title);
     explanationElement.insertAdjacentHTML("beforeend", responseJson.explanation);
+
+    // Button eventlistener
+    const button = document.getElementById("search-button");
+    button.addEventListener("click", clickSearch);
+    async function clickSearch() {
+        let input = document.getElementById("chosen-date").value;
+        console.log(input);
+    }
 }
 
 window.addEventListener("load", loadEvent);
