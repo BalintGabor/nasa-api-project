@@ -10,19 +10,18 @@ const loadEvent = async function() {
     const responseJson = await response.json();
 
     // Define the media content: image or video
-    const mediaContent = imgOrIframe();
     function imgOrIframe() {
         if (responseJson.media_type === "video") {
-            return `<iframe src="${responseJson.url}">`;
+            return `<iframe id="media-file" src="${responseJson.url}">`;
         }
-        return `<img src="${responseJson.hdurl}">`;
+        return `<img id="media-file" src="${responseJson.hdurl}">`;
     }
-
+    
     // Insert the media content, title and explanation
-    mediaContainerElement.insertAdjacentHTML("beforeend", mediaContent);
+    mediaContainerElement.insertAdjacentHTML("beforeend", imgOrIframe());
     articleTitleElement.insertAdjacentHTML("beforeend", responseJson.title);
     articleExplanationElement.insertAdjacentHTML("beforeend", responseJson.explanation);
-
+    
     // Button eventlistener
     const button = document.getElementById("search-button");
     button.addEventListener("click", clickSearch);
@@ -32,47 +31,38 @@ const loadEvent = async function() {
             newFetch(input);
         }
     }
-
+    
     // New fetch for the chosen date's data
     async function newFetch(input) {
-
+        
         // Selectors
-        const mainContainerElement = document.getElementById("main-container");
+        const mediaFileElement = document.getElementById("media-file");
         const articleContainerElement = document.getElementById("article-container");
-
+        
         // New fetch
         let changedResponse = await fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=" + `${input}`);
         let changedResponseJson = await changedResponse.json();
-
+        
         // Remove the old data
-        mediaContainerElement.remove();
-        articleTitleElement.remove();
-        articleExplanationElement.remove();
-
+        mediaFileElement.remove();
+        articleContainerElement.innerHTML = "";
+        
         // Define the new media content: image or video
-        const changedMediaContent = changedImgOrIframe ();
         function changedImgOrIframe() {
             if (changedResponseJson.media_type === "video") {
-                return `
-                <div id="media-container">
-                    <iframe src="${changedResponseJson.url}">
-                </div>`;
+                return `<iframe id="media-file" src="${changedResponseJson.url}">`
             }
-            return `
-            <div id="media-container">
-                <img src="${changedResponseJson.hdurl}">
-            </div>
-            `;
+            return `<img id="media-file" src="${changedResponseJson.hdurl}">`;
         }
 
         // Get the new title and explanation
         let changedTitleAndExplanationElement = `
-            <h2>${changedResponseJson.title}</h2>
-            <p>${changedResponseJson.explanation}</p>
+            <h2 id="article-title">${changedResponseJson.title}</h2>
+            <p id="article-explanation">${changedResponseJson.explanation}</p>
         `;
 
         // Insert the new media content, title and explanation
-        mainContainerElement.insertAdjacentHTML("afterbegin", changedMediaContent);
+        mediaContainerElement.insertAdjacentHTML("beforeend", changedImgOrIframe());
         articleContainerElement.insertAdjacentHTML("afterbegin", changedTitleAndExplanationElement);
     }
 }
