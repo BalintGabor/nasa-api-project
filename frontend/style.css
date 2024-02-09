@@ -1,1 +1,280 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0px 75px;
+  background-color: #000000;
+  font-family: 'Titillium Web', sans-serif;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    padding: 0px 30px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    padding: 0px 10px;
+  }
+}
+
+body #header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 13%;
+  margin-bottom: 20px;
+  border-width: 0px 70px 15px 70px;
+  border-bottom-right-radius: 100px 50px;
+  border-bottom-left-radius: 100px 50px;
+  border-style: solid;
+  border-color: #0B3D91;
+}
+
+@media screen and (max-width: 750px) {
+  body #header-container {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body #header-container {
+    border-width: 0px 35px 8px 35px;
+    border-bottom-right-radius: 50px 25px;
+    border-bottom-left-radius: 50px 25px;
+  }
+}
+
+body #header-container #logo {
+  margin-left: 20px;
+}
+
+body #header-container h1 {
+  position: absolute;
+  top: 5.5%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+
+@media screen and (max-width: 1000px) {
+  body #header-container h1 {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  body #header-container h1 {
+    position: static;
+    -webkit-transform: none;
+            transform: none;
+    margin-right: 20px;
+    font-size: 20px;
+  }
+}
+
+body #main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 84.8%;
+}
+
+@media screen and (max-width: 1000px) {
+  body #main-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+body #main-container #media-container {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+  margin-right: 40px;
+  border-width: 7px 0px 7px 40px;
+  border-radius: 60px 0px 0px 60px / 30px;
+  border-style: solid;
+  border-color: #FC3D21;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+@media screen and (max-width: 1000px) {
+  body #main-container #media-container {
+    width: 100%;
+    height: 75vh;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body #main-container #media-container {
+    height: 50vh;
+    border-width: 4px 0px 4px 20px;
+    border-radius: 30px 0px 0px 30px / 15px;
+  }
+}
+
+body #main-container #media-container img,
+body #main-container #media-container iframe {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  max-height: 100%;
+}
+
+body #main-container #data-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 40%;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-width: 7px 40px 7px 00px;
+  border-radius: 0px 60px 60px 0px / 30px;
+  border-style: solid;
+  border-color: #0B3D91;
+  padding: 25px 15px;
+}
+
+@media screen and (max-width: 1000px) {
+  body #main-container #data-container {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body #main-container #data-container {
+    border-width: 4px 20px 4px 00px;
+    border-radius: 0px 30px 30px 0px / 15px;
+  }
+}
+
+body #main-container #data-container #article-container #article-title {
+  margin-bottom: 10px;
+}
+
+body #main-container #data-container #date-chooser {
+  margin-top: 20px;
+}
+
+body #main-container #data-container #date-chooser label,
+body #main-container #data-container #date-chooser #chosen-date,
+body #main-container #data-container #date-chooser ::-webkit-calendar-picker-indicator,
+body #main-container #data-container #date-chooser #search-button {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+body #main-container #data-container #date-chooser label {
+  border-top-left-radius: 17px;
+  border-bottom-left-radius: 17px;
+  padding: 8px 8px 8px 12px;
+  background-color: #77A6F7;
+}
+
+@media screen and (max-width: 1610px) {
+  body #main-container #data-container #date-chooser label {
+    margin-right: 20%;
+    border-top-right-radius: 17px;
+    border-bottom-right-radius: 17px;
+    padding: 8px 8px 8px 8px;
+  }
+}
+
+@media screen and (max-width: 1210px) and (min-width: 1000px) {
+  body #main-container #data-container #date-chooser label {
+    margin-right: 6%;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 630px) {
+  body #main-container #data-container #date-chooser label {
+    margin-right: 1px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 8px 8px 8px 12px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  body #main-container #data-container #date-chooser label {
+    margin-right: 1px;
+  }
+}
+
+body #main-container #data-container #date-chooser #chosen-date {
+  padding: 7px 6px 7px 8px;
+  background: linear-gradient(90deg, #1A335E 110px, #000000 110px, #000000 114px, #0B3D91 114px);
+}
+
+@media screen and (max-width: 1610px) {
+  body #main-container #data-container #date-chooser #chosen-date {
+    margin-top: 13px;
+    border-top-left-radius: 17px;
+    border-bottom-left-radius: 17px;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 630px) {
+  body #main-container #data-container #date-chooser #chosen-date {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+body #main-container #data-container #date-chooser ::-webkit-calendar-picker-indicator {
+  padding-left: 3px;
+  background-color: #0B3D91;
+  cursor: pointer;
+}
+
+body #main-container #data-container #date-chooser #search-button {
+  margin-left: 1.5px;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+  padding: 8px 12px 8px 8px;
+  background-color: #FC3D21;
+}
+/*# sourceMappingURL=style.css.map */

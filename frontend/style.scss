@@ -1,0 +1,226 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    padding: 0px 75px;
+
+    background-color: #000000;
+    font-family: 'Titillium Web', sans-serif;
+    color: #FFFFFF;
+
+    @media screen and (max-width: 1200px) {
+        padding: 0px 30px;
+    }
+
+    @media screen and (max-width: 1000px) {
+        height: fit-content;
+        overflow: visible;
+    }
+
+    @media screen and (max-width: 500px) {
+        padding: 0px 10px;
+    }
+
+    #header-container {
+        display: flex;
+        width: 100%;
+        height: 13%;
+
+        margin-bottom: 20px;
+        border-width: 0px 70px 15px 70px;
+        border-bottom-right-radius: 100px 50px;
+        border-bottom-left-radius: 100px 50px;
+        border-style: solid;
+        border-color: #0B3D91;
+
+        @media screen and (max-width: 750px) {
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 500px) {
+            border-width: 0px 35px 8px 35px;
+            border-bottom-right-radius: 50px 25px;
+            border-bottom-left-radius: 50px 25px;
+        }
+
+        #logo {
+            margin-left: 20px;
+        }
+
+        h1 {
+            position: absolute;
+            top: 5.5%;
+            right: 50%;
+            transform: translate(50%, -50%);
+
+            @media screen and (max-width: 1000px) {
+                font-size: 25px;
+            }
+
+            @media screen and (max-width: 750px) {
+                position: static;
+                transform: none;
+                margin-right: 20px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    #main-container {
+        display: flex;
+        width: 100%;
+        height: 84.8%;
+
+        @media screen and (max-width: 1000px) {
+            flex-direction: column;
+        }
+
+        #media-container {
+            position: relative;
+            width: 60%;
+            height: 100%;
+            overflow: hidden;
+
+            margin-right: 40px;
+            border-width: 7px 0px 7px 40px;
+            border-radius: 60px 0px 0px 60px / 30px;
+            border-style: solid;
+            border-color: #FC3D21;
+            padding-top: 25px;
+            padding-bottom: 25px;
+
+            @media screen and (max-width: 1000px) {
+                width: 100%;
+                height: 75vh;
+                margin-bottom: 20px;
+            }
+
+            @media screen and (max-width: 500px) {
+                height: 50vh;
+                border-width: 4px 0px 4px 20px;
+                border-radius: 30px 0px 0px 30px / 15px;
+            }
+
+            img,
+            iframe {
+                position: absolute;
+                top: 50%;
+                right: 50%;
+                transform: translate(50%, -50%);
+                max-width: max-content;
+                max-height: 100%;
+            }
+        }
+
+        #data-container {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            height: 100%;
+            justify-content: space-between;
+
+            border-width: 7px 40px 7px 00px;
+            border-radius: 0px 60px 60px 0px / 30px;
+            border-style: solid;
+            border-color: #0B3D91;
+            padding: 25px 15px;
+
+            @media screen and (max-width: 1000px) {
+                display: block;
+                width: 100%;
+                height: auto;
+                overflow: auto;
+            }
+
+            @media screen and (max-width: 500px) {
+                border-width: 4px 20px 4px 00px;
+                border-radius: 0px 30px 30px 0px / 15px;
+            }
+
+            #article-container {
+                #article-title {
+                    margin-bottom: 10px;
+                }
+            }
+
+            #date-chooser {
+                margin-top: 20px;
+
+                label,
+                #chosen-date,
+                ::-webkit-calendar-picker-indicator,
+                #search-button {
+                    border: none;
+                    outline: none;
+
+                    font-size: 15px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: #000000;
+                }
+
+                label {
+                    border-top-left-radius: 17px;
+                    border-bottom-left-radius: 17px;
+                    padding: 8px 8px 8px 12px;
+                    background-color: #77A6F7;
+
+                    @media screen and (max-width: 1610px) {
+                        margin-right: 20%;
+                        border-top-right-radius: 17px;
+                        border-bottom-right-radius: 17px;
+                        padding: 8px 8px 8px 8px;
+                    }
+
+                    @media screen and (max-width: 1210px) and (min-width: 1000px) {
+                        margin-right: 6%;
+                    }
+
+                    @media screen and (max-width: 1000px) and (min-width: 630px) {
+                        margin-right: 1px;
+                        border-top-right-radius: 0px;
+                        border-bottom-right-radius: 0px;
+                        padding: 8px 8px 8px 12px;
+                    }
+
+                    @media screen and (max-width: 410px) {
+                        margin-right: 1px;
+                    }
+                }
+
+                #chosen-date {
+                    padding: 7px 6px 7px 8px;
+                    background: linear-gradient(90deg, #1A335E 110px, #000000 110px, #000000 114px, #0B3D91 114px);
+
+                    @media screen and (max-width: 1610px) {
+                        margin-top: 13px;
+                        border-top-left-radius: 17px;
+                        border-bottom-left-radius: 17px;
+                    }
+
+                    @media screen and (max-width: 1000px) and (min-width: 630px) {
+                        margin-top: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                    }
+                }
+
+                ::-webkit-calendar-picker-indicator {
+                    padding-left: 3px;
+                    background-color: #0B3D91;
+                    cursor: pointer;
+                }
+
+                #search-button {
+                    margin-left: 1.5px;
+                    border-top-right-radius: 17px;
+                    border-bottom-right-radius: 17px;
+                    padding: 8px 12px 8px 8px;
+                    background-color: #FC3D21;
+                }
+            }
+        }
+    }
+}
