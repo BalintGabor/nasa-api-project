@@ -186,6 +186,11 @@ body #main-container #data-container {
   }
 }
 
+body #main-container #data-container #article-container {
+  max-height: calc(height - 96px);
+  overflow-y: hidden;
+}
+
 body #main-container #data-container #article-container #article-title {
   margin-bottom: 10px;
 }

@@ -140,6 +140,8 @@ body {
             }
 
             #article-container {
+                max-height: calc(height - 96px);
+                overflow-y: hidden;
                 #article-title {
                     margin-bottom: 10px;
                 }
