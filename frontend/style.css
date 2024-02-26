@@ -148,6 +148,7 @@ body #main-container #media-container iframe {
   max-width: -moz-max-content;
   max-width: max-content;
   max-height: 100%;
+  min-height: 100%;
 }
 
 body #main-container #data-container {
